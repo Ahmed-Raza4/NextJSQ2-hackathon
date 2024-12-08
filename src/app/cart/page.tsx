@@ -14,11 +14,6 @@ export default function cart() {
                         <h2 className="text-lg font-bold mb-4">Bag</h2>
                         {/* Item 1 */}
                         <div className="flex items-center justify-between border-b pb-4 mb-4">
-                            {/* <img
-                src="/path-to-shirt-image.jpg"
-                alt="Nike Dri-FIT ADV TechKnit Ultra"
-                className="w-24 h-24 rounded-md border"
-              /> */}
                             <Image
                                 src={image1}
                                 alt="Nike Air Force 1"
@@ -30,7 +25,7 @@ export default function cart() {
                                 <h3 className="font-medium text-gray-800">
                                     Nike Dri-FIT ADV TechKnit Ultra
                                 </h3>
-                                <p className="text-sm text-gray-600">Men's Short-Sleeve Running Top</p>
+                                <p className="text-sm text-gray-600">Men&apos;s Short-Sleeve Running Top</p>
                                 <p className="text-sm text-gray-500">Ashen Slate/Cobalt Bliss</p>
                                 <p className="text-sm text-gray-500">Size: L</p>
                             </div>
@@ -45,7 +40,7 @@ export default function cart() {
 
                             <div className="ml-10 flex-1">
                                 <h3 className="font-medium text-gray-800 ">Nike Air Max 97 SE</h3>
-                                <p className="text-sm text-gray-600">Men's Shoes</p>
+                                <p className="text-sm text-gray-600">Men&apos;s Shoes</p>
                                 <p className="text-sm text-gray-500">Flat Pewter/Light Bone/Black/White</p>
                                 <p className="text-sm text-gray-500">Size: 8</p>
                             </div>

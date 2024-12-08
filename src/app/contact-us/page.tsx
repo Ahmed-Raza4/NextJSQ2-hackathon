@@ -32,7 +32,7 @@ const Page = () => {
           <ul className="list-disc pl-5 mb-6 space-y-2">
             <li>Visa, Mastercard, Diners Club, Discover, American Express, Visa Electron, Maestro</li>
             <li>
-              If you enter your PAN information at checkout, you'll be able to pay for your order with PayTM or a local credit or debit card.
+              If you enter your PAN information at checkout, you&apos;ll be able to pay for your order with PayTM or a local credit or debit card.
             </li>
             <li>Apple Pay</li>
           </ul>
@@ -40,7 +40,7 @@ const Page = () => {
             <Link href="#" className="underline font-semibold">
               Nike Members
             </Link>{" "}
-            can store multiple debit or credit cards in their profile for faster checkout. If you're not already a Member,{" "}
+            can store multiple debit or credit cards in their profile for faster checkout. If you&apos;re not already a Member,{" "}
             <Link href="#" className="underline font-semibold">
               join us
             </Link>{" "}
@@ -58,7 +58,7 @@ const Page = () => {
           </div>
           <div className="mb-6">
             <h4 className="text-lg font-bold mb-2">Can I pay for my order with multiple methods?</h4>
-            <p>No, payment for Nike orders can't be split between multiple payment methods.</p>
+            <p>No, payment for Nike orders can&apos;t be split between multiple payment methods.</p>
           </div>
           <div className="mb-6"> 
             <p className="mb-2">Was this answer helpful?</p>
@@ -84,7 +84,7 @@ const Page = () => {
           {/* Email Section */}
           <div className="flex flex-col items-center space-y-2 text-center">
             <FontAwesomeIcon icon={faEnvelope} className="text-gray-500 w-10 h-10" />
-            <p>We'll reply within five business days</p>
+            <p>We&apos;ll reply within five business days</p>
           </div>
 
           {/* Store Locator Section */}
