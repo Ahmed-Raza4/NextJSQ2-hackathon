@@ -35,8 +35,8 @@ export default function Hero() {
            
                 </p>
                 <div className="flex justify-center items-center gap-3">
-                    <button className="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">Notify Me</button>
-                    <button className="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">Shop Air Max</button>
+                    <Link href='/cart'><button className="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">Notify Me</button></Link>
+                    <Link href='all-products'><button className="px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">Shop Air Max</button></Link>
                 </div>
             </div>
         </section>
@@ -83,7 +83,7 @@ export default function Hero() {
                 className="mx-auto"
               />
               <div className="mt-4">
-                <h3 className="font-medium text-lg pl-11">{product.title}</h3>
+                <Link href='/product-detail'><h3 className="font-medium text-lg pl-11">{product.title}</h3></Link>
                 <p className="text-gray-500 text-sm pl-11">{product.desc}</p>
                 <p className="font-bold mt-1 pl-11">{product.price}</p>
               </div>
@@ -108,9 +108,9 @@ export default function Hero() {
           Cause everyone should know the feeling of running in that perfect
           pair!
         </p>
-        <button className="mt-6 px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">
+        <Link href='/all-products'><button className="mt-6 px-6 py-3 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">
           Find Your Shoe
-        </button>
+        </button></Link>
       </div>
 
       {/* Gear Up Section */}
@@ -163,7 +163,7 @@ export default function Hero() {
         <div className="flex flex-col justify-center items-center space-y-5 pt-10">
           <h1 className="font-semibold text-2xl md:text-4xl">FLIGHT ESSENTIALS</h1>
           <h2 className="text-[9px] md:text-sm">Your built-to-last,all-week wears—but with style only Jordan Brand can deliver.</h2>
-          <button className="bg-black rounded-2xl text-white px-4 py-2 ">Shop</button>
+          <Link href='/all-products'><button className="bg-black rounded-2xl text-white px-4 py-2 ">Shop</button></Link>
         </div>
       </section>
 
