@@ -180,7 +180,7 @@ export default function Hero() {
       {/* Don't Miss Section */}
       <section className="my-16 px-4">
         <div className="container mx-auto">
-          <h1 className="font-semibold text-xl mb-4 text-center md:text-left">Don't Miss</h1>
+          <h1 className="font-semibold text-xl mb-4 text-center md:text-left">Don&apos;t Miss</h1>
           <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[90vh] md:mb-8">
             <Image 
               src="/HeroSection/image9.png" 
@@ -292,7 +292,7 @@ export default function Hero() {
             <div>
               <span className="text-lg font-semibold text-gray-900 mb-4 block">Kid's</span>
               <ul className="space-y-4 text-base text-gray-500">
-                {["Infant & Toddler Shoes", "Kid's Shoes", "Kid's Jordan Shoes", "Kid's Basketball Shoes"].map((item, index) => (
+                {["Infant & Toddler Shoes", "Kids Shoes", "Kid's Jordan Shoes", "Kid's Basketball Shoes"].map((item, index) => (
                   <li key={index}>
                     <Link
                       href="#"

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Camera, Heart, ShoppingBag, Menu, X, Search } from 'lucide-react';
+import { Heart, ShoppingBag, Menu, X, Search } from 'lucide-react';
 import Image from 'next/image';
 import Frame from "../../public/header/logo.png"
 import Logo from "../../public/header/nike logo.png"
