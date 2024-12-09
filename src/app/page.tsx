@@ -290,9 +290,9 @@ export default function Hero() {
 
             {/* Kids Section */}
             <div>
-              <span className="text-lg font-semibold text-gray-900 mb-4 block">Kid's</span>
+              <span className="text-lg font-semibold text-gray-900 mb-4 block">Kid&apos;s</span>
               <ul className="space-y-4 text-base text-gray-500">
-                {["Infant & Toddler Shoes", "Kids Shoes", "Kid's Jordan Shoes", "Kid's Basketball Shoes"].map((item, index) => (
+                {["Infant & Toddler Shoes", "Kids Shoes", "Kids Jordan Shoes", "Kids Basketball Shoes"].map((item, index) => (
                   <li key={index}>
                     <Link
                       href="#"
