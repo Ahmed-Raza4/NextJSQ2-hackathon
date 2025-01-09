@@ -1,3 +1,4 @@
+import { Carousel, CarouselContent } from "@/components/ui/carousel";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -66,7 +67,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {

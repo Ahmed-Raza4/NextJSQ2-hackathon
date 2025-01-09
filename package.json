@@ -12,12 +12,21 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@radix-ui/react-slot": "^1.1.1",
+    "@sanity/vision": "^3.68.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.5.2",
     "lucide-react": "^0.468.0",
     "next": "14.2.20",
+    "next-sanity": "^9.8.32",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
-    "sharp": "^0.33.5"
+    "sanity": "^3.68.3",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",

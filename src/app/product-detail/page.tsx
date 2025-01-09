@@ -22,10 +22,16 @@ const ProductCard: React.FC = () => {
         </p>
         <div className="flex items-center mt-5">
           <span className="font-poppins text-3xl font-medium text-gray-900 mr-5">
-            ₹ 8,695.00
+            ₹ 8695.00
           </span>
-          <div>
-          <button className="bg-gray-900 text-white py-2 px-5 rounded-full flex items-center">
+
+          <button type='button' className="bg-gray-900 text-white py-2 px-5 rounded-full flex items-center snipcart-add-item" 
+          data-item-id="123"
+          data-item-price="8695"
+          data-item-image={"product-detail.png"}
+          data-item-name="Nike Air Force 1 PLT.AF.ORM"
+          data-item-description="Turn style on its head with this crafted take on the Air Jordan 1 Mid. Its inside out-inspired construction, including unique layering and exposed foam accents, ups the ante on this timeless Jordan Brand silhouette."
+          data-item-url="/product-detail">
             <Image
               src="/Buy-Cart.png"
               alt="Cart Icon"
@@ -34,7 +40,6 @@ const ProductCard: React.FC = () => {
             />
             <span className="ml-2">Add To Cart</span>
           </button>
-          </div>
         </div>
       </div>
     </div>
