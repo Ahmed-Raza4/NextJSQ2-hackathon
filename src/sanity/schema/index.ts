@@ -1,3 +1,3 @@
-import { productsSchema } from "./products";
+import { productSchema } from "./products";
 
-export const schemas = [productsSchema];
+export const schemas = [productSchema];

@@ -1,7 +1,23 @@
+'use client';
+import { get4Products } from "@/sanity/sanity.query";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [products, setProducts] = useState<any>([])
+  useEffect(() => {
+    async function getSomeProduct() {
+      const productsData = await get4Products();
+      setProducts(productsData);
+      console.log(productsData);
+    }
+    getSomeProduct();
+  }, [])
+
+
+
+
   return (
     <div className="w-full bg-gray-100">
       {/* Fullscreen Sneaker Image Section */}
@@ -17,9 +33,9 @@ export default function Hero() {
 
         {/* Hero Background Image */}
         <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[90vh]">
-          <Image 
-            src="/HeroSection/image.png" 
-            alt="Nike Air Max Pulse" 
+          <Image
+            src="/HeroSection/image.png"
+            alt="Nike Air Max Pulse"
             fill
             priority
             className="object-cover object-center rounded-lg"
@@ -36,7 +52,7 @@ export default function Hero() {
             Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse
             —designed to push you past your limits and help you go to the max.
           </p>
-          
+
           {/* Action Buttons */}
           <div className="flex justify-center space-x-4">
             <Link href="/cart">
@@ -54,7 +70,7 @@ export default function Hero() {
       </section>
 
       {/* Best of Air Max Section */}
-      <section className="bg-white py-12 px-4">
+      {/* <section className="bg-white py-12 px-4">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-0">Best of Air Max</h2>
@@ -107,7 +123,38 @@ export default function Hero() {
             ))}
           </div>
         </div>
+      </section> */}
+
+<section className="bg-white py-12 px-4"> 
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {products.map((product: any, index: number) => (
+          <Link href={`/all-products/${product.slug}`} key={product.slug}>
+            <div key={index} className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition duration-300">
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={300}
+                height={300}
+                className="w-full h-48 object-cover rounded-md"
+              />
+              <div className="mt-4 text-center">
+                <h3 className="font-semibold text-gray-700">{product.productName}</h3>
+                <p className="text-sm text-gray-500">{product.category}</p>
+                <p className="font-bold mt-2">MRP: ₹{product.price}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <div className="text-center mt-6">
+          <Link href="/all-products">
+            <div className="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-blue-600">
+              See More
+            </div>
+          </Link>
+        </div>
       </section>
+
 
       {/* New Section */}
       <section className="relative bg-white py-16 px-4 text-center">
@@ -182,9 +229,9 @@ export default function Hero() {
         <div className="container mx-auto">
           <h1 className="font-semibold text-xl mb-4 text-center md:text-left">Don&apos;t Miss</h1>
           <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[90vh] md:mb-8">
-            <Image 
-              src="/HeroSection/image9.png" 
-              alt="flight" 
+            <Image
+              src="/HeroSection/image9.png"
+              alt="flight"
               width={1344}
               height={700}
               // fill
@@ -209,25 +256,25 @@ export default function Hero() {
       <section className="container mx-auto px-4 py-12">
         <h2 className="font-semibold text-xl mb-8 text-center md:text-left">The Essentials</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-          <Image 
-            width={300} 
-            height={300} 
-            alt="Essential 1" 
-            src="/HeroSection/image10.png" 
+          <Image
+            width={300}
+            height={300}
+            alt="Essential 1"
+            src="/HeroSection/image10.png"
             className="object-contain"
           />
-          <Image 
-            width={300} 
-            height={300} 
-            alt="Essential 2" 
-            src="/HeroSection/image11.png" 
+          <Image
+            width={300}
+            height={300}
+            alt="Essential 2"
+            src="/HeroSection/image11.png"
             className="object-contain"
           />
-          <Image 
-            width={300} 
-            height={300} 
-            alt="Essential 3" 
-            src="/HeroSection/image12.png" 
+          <Image
+            width={300}
+            height={300}
+            alt="Essential 3"
+            src="/HeroSection/image12.png"
             className="object-contain"
           />
         </div>

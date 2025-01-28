@@ -31,7 +31,7 @@ const page = () => {
                     </div>
                     <div className="flex-1 md:pl-5 pt-5 md:pt-0 flex flex-col justify-center">
                         <h2 className="font-poppins text-3xl md:text-4xl font-medium text-gray-900">
-                            {product.name}
+                            {product.productName}
                         </h2>
                         <p className="font-poppins text-sm text-gray-900 my-2 leading-7">
                             {product.description}
@@ -46,7 +46,7 @@ const page = () => {
                                 data-item-id="123"
                                 data-item-price={product.price}
                                 data-item-image={product.image}
-                                data-item-name={product.name}
+                                data-item-name={product.productName}
                                 data-item-description={product.description}
                                 data-item-url="/product-detail">
                                 <Image

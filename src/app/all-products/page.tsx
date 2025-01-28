@@ -6,15 +6,6 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-    // Product data array for 90 products
-    // const products = Array.from({ length: 90 }, (_, index) => ({
-    //     id: index + 1,
-    //     image: `/All Products/image ${index + 1}.png`,
-    //     name: `Nike Air Force ${ index + 1}`,
-    //     description: "Men's Shoes",
-    //     price: `₹${10795 + index * 100}`,
-    //     imageUrl: `/product-detail${(index % 5) + 1}.jpeg`, // 5 different images
-    // }));
     const [products, setProducts] = useState<any>([]);
     useEffect(() => {
       async function allProducts() {
@@ -104,30 +95,12 @@ export default function Home() {
                                 className="w-full h-48 object-cover rounded-md"
                             />
                             <div className="mt-4 text-center">
-                                <h3 className="font-semibold text-gray-700">{product.name}</h3>
+                                <h3 className="font-semibold text-gray-700">{product.productName}</h3>
                                 <p className="text-sm text-gray-500">{product.category}</p>
                                 <p className="font-bold mt-2">MRP: ₹{product.price}</p>
                             </div>
                         </div>
                 </Link>
-                    ))}
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    {products.map((product:any, index:number) => (
-                        <div key={index} className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition duration-300">
-                            <Image
-                                src={product.image}
-                                alt={product.name}
-                                width={300}
-                                height={300}
-                                className="w-full h-48 object-cover rounded-md"
-                            />
-                            <div className="mt-4 text-center">
-                                <h3 className="font-semibold text-gray-700">{product.name}</h3>
-                                <p className="text-sm text-gray-500">{product.category}</p>
-                                <p className="font-bold mt-2">MRP: ₹{product.price}</p>
-                            </div>
-                        </div>
                     ))}
                 </div>
             </div>

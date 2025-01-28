@@ -1,6 +1,14 @@
+'use client'
 import Image from "next/image"
+import Link from "next/link";
+import { signIn } from "next-auth/react";
+
 
 const Sign_In = () => {
+    const handleSignIn = async () => {
+        await signIn('github')
+    }
+    
     return (
         <>
             <div className='h-screen  grid place-content-center  overflow-hidden  '>
@@ -12,9 +20,7 @@ const Sign_In = () => {
                             alt="logo"
                             width={60}
                             height={60}
-                            className="pb-4 mt-5 ml-2
-    "
-
+                            className="pb-4 mt-5 ml-2"
                         />
                     </div>
 
@@ -53,11 +59,16 @@ const Sign_In = () => {
                         <button className=" text-white/90 py-3 rounded-lg font-extralight text-sm">SIGN IN</button>
                     </div>
 
+                    {/* Add AUthantication with Github */}
+                    <div className="bg-zinc-800 text-center  mt-6">
+                        <button className=" text-white/90 py-3 rounded-lg font-extralight text-sm" onClick={handleSignIn}>SIGN IN WITH GITHUB</button>
+                    </div>
+
 
                     <div className="pb-11 flex justify-center p-4 text-zinc-500/70">
 
                         <p className="">
-                            Not a Member? <span className="text-zinc-900 underline underline-offset-2"> Join Us.</span>
+                            Not a Member? <span className="text-zinc-900 underline underline-offset-2"> <Link href="/sign-up"> Join Us. </Link></span>
                         </p>
                     </div>
 
@@ -71,3 +82,6 @@ const Sign_In = () => {
 }
 
 export default Sign_In;
+
+
+
