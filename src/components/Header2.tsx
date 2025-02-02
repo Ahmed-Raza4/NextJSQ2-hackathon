@@ -5,9 +5,21 @@ import Image from 'next/image';
 import Frame from "../../public/header/logo.png"
 import Logo from "../../public/header/nike logo.png"
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [query, setQuery] = useState(" ")
+  const router = useRouter();
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    if (query.trim()){
+      router.push(`/all-products?search=${
+        encodeURIComponent(query.trim())}`);
+    }
+    setQuery("");
+  }
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -78,12 +90,16 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           {/* Search Bar - Desktop */}
           <div className="relative hidden md:block">
+          <form onSubmit={handleSearch} className="relative"> 
             <input
               type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Search"
               className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none"
             />
-            <Search className="absolute right-3 top-2.5 text-gray-500" />
+            <button type="submit"><Search className="absolute right-3 top-1.5 text-gray-500" /></button>
+            </form>
           </div>
 
           <div className="flex items-center gap-4">

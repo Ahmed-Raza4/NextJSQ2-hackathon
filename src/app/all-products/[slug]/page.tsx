@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { getProducts } from '@/sanity/sanity.query';
 import { useParams } from 'next/navigation';
+import { useToast } from '@/hooks/use-toast';
 
 const page = () => {
     const [products, setProducts] = useState<any>([]);
+    const { toast }= useToast()
     useEffect(() => {
         async function allProducts() {
             const productsData = await getProducts();
@@ -15,6 +17,19 @@ const page = () => {
         allProducts();
     }, [])
     const urldata = useParams()
+
+    const cartData = JSON.parse(localStorage.getItem('cart') ?? '[]');
+
+    const addToCart = (product : any ) =>{
+        if(cartData.length > 0){
+            localStorage.setItem('cart', JSON.stringify([...cartData, product]));
+        }
+        else{
+            localStorage.setItem('cart', JSON.stringify([product]));
+        }
+    }
+
+
     return (
         <>
             {products.filter((product: any) => product.slug === urldata.slug).map((product: any) => (
@@ -42,13 +57,15 @@ const page = () => {
                             </span>
 
                             <button type='button'
-                                className="w-full sm:w-auto bg-gray-900 text-white py-2 px-5 rounded-full flex items-center justify-center snipcart-add-item"
-                                data-item-id="123"
-                                data-item-price={product.price}
-                                data-item-image={product.image}
-                                data-item-name={product.productName}
-                                data-item-description={product.description}
-                                data-item-url="/product-detail">
+                                className="w-full sm:w-auto bg-gray-900 text-white py-2 px-5 rounded-full flex items-center justify-center"
+                                onClick={() => {
+                                    toast({
+                                    description: "Item Added Succesfully.",
+                                    duration: 5000,
+                                      })
+                                      addToCart(product)}
+                                }
+                                >
                                 <Image
                                     src="/Buy-Cart.png"
                                     alt="Cart Icon"
