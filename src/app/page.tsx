@@ -10,7 +10,6 @@ export default function Hero() {
     async function getSomeProduct() {
       const productsData = await get4Products();
       setProducts(productsData);
-      console.log(productsData);
     }
     getSomeProduct();
   }, [])
