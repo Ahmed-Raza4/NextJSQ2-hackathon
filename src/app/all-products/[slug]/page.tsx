@@ -5,7 +5,7 @@ import { getProducts } from '@/sanity/sanity.query';
 import { useParams } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 
-const page = () => {
+const Detail = () => {
     const [products, setProducts] = useState<any>([]);
     const { toast }= useToast()
     useEffect(() => {
@@ -82,4 +82,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Detail;
