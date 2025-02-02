@@ -14,9 +14,8 @@ export default function Nav() {
   const router = useRouter();
   const handleSearch = (e: any) => {
     e.preventDefault();
-    if (query.trim()){
-      router.push(`/all-products?search=${
-        encodeURIComponent(query.trim())}`);
+    if (query.trim()) {
+      router.push(`/all-products?search=${encodeURIComponent(query.trim())}`);
     }
     setQuery("");
   }
@@ -90,15 +89,15 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           {/* Search Bar - Desktop */}
           <div className="relative hidden md:block">
-          <form onSubmit={handleSearch} className="relative"> 
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search"
-              className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none"
-            />
-            <button type="submit"><Search className="absolute right-3 top-1.5 text-gray-500" /></button>
+            <form onSubmit={handleSearch} className="relative">
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search"
+                className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none"
+              />
+              <button type="submit"><Search className="absolute right-3 top-1.5 text-gray-500" /></button>
             </form>
           </div>
 
@@ -136,12 +135,16 @@ export default function Nav() {
 
                 {/* Mobile Search */}
                 <div className="relative mb-6 mt-12">
-                  <input
-                    type="text"
-                    placeholder="Search"
-                    className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none w-full"
-                  />
-                  <Search className="absolute right-3 top-2.5 text-gray-500" />
+                  <form onSubmit={handleSearch} className="relative">
+                    <input
+                      type="text"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      placeholder="Search"
+                      className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none"
+                    />
+                    <button type="submit"><Search className="absolute right-3 top-1.5 text-gray-500" /></button>
+                  </form>
                 </div>
 
                 {/* Mobile Navigation Links */}

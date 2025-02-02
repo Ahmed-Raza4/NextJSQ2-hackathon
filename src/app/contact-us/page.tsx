@@ -47,9 +47,6 @@ const Page = () => {
             today.
           </p>
           <div className="flex mt-4 gap-4">
-            
-            {/* <Button text="Join Us" classNames="rounded-full py-2" />
-            <Button text="Shop Nike" classNames="rounded-full py-2" /> */}
           </div>
           <h3 className="text-xl font-semibold mt-8 mb-4">FAQs</h3>
           <div className="mb-6">

@@ -181,9 +181,8 @@ export default function Products() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {paginatedProducts.map((product: any, index: number) => (
-                            <Link href={`/all-products/${product.slug}`} key={product.slug}>
+                            <Link href={`/all-products/${product.slug}`} key={index}>
                                 <div
-                                    key={index}
                                     className="bg-white border rounded-lg p-4 shadow-sm hover:shadow-md transition duration-300"
                                 >
                                     <Image
