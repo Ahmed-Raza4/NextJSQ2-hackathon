@@ -16,7 +16,7 @@ const Sign_In = () => {
         <>
             {session ? (<div>
                 <p>Welcome, {session.user?.name}</p>
-                <img src={session.user?.image ?? ""} alt="User Avatar" width={50} height={50} />
+                <Image src={session.user?.image ?? ""} alt="User Avatar" width={50} height={50} />
                 <button onClick={() => signOut()}>Sign Out</button>
             </div>
             ) : (

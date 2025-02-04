@@ -27,8 +27,6 @@ export default function Cart() {
 
     const handleCancel = () => {
         setShowPopup(false);
-        setItems([]);
-        localStorage.removeItem('cart');
     };
 
     const subtotal = items.reduce((total, item) => total + (quantities[item.slug] || 1) * item.price, 0);

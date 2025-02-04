@@ -1,24 +1,25 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-export default function Confirmation() {
+
+export default function OrderComplete() {
     const [products, setProducts] = useState<any[]>([]);
     const [total, setTotal] = useState<number>(0);
-    const [customerDetails, setCustomerDetails] = useState<any>({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-    });
+    const [cartData, setCartData] = useState<any[]>([])
 
     useEffect(() => {
         // Fetch cart data
+        const orderData = localStorage.getItem('order');
         const cartData = localStorage.getItem('cart');
+        if (orderData) {
+            const parsedOrder = JSON.parse(orderData);
+            setProducts(parsedOrder);
+        }
         if (cartData) {
             const parsedCart = JSON.parse(cartData);
-            setProducts(parsedCart);
+            setCartData(parsedCart);
 
             // Calculate total
             const totalPrice = parsedCart.reduce(
@@ -27,17 +28,13 @@ export default function Confirmation() {
             );
             setTotal(totalPrice);
         }
-
-        // Fetch customer details
-        const customerData = localStorage.getItem('customerDetails');
-        if (customerData) {
-            setCustomerDetails(JSON.parse(customerData));
-        }
     }, []);
-
+    
+    const router =   useRouter();
     const handleContinueShopping = () => {
         localStorage.removeItem('cart'); // Clear cart from local storage
-        window.location.href = '/'; // Redirect to home page
+        localStorage.removeItem('order'); // Clear order from local storage
+        router.push('/all-products'); // Redirect to home page
     };
 
     return (
@@ -54,27 +51,29 @@ export default function Confirmation() {
                 {/* Customer Details Section */}
                 <div className="mb-8">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">Customer Details</h2>
-                    <div className="space-y-2">
+                    {products.map((product) => (
+                    <div key={product._id} className="space-y-2">
                         <p>
-                            <span className="font-medium text-gray-700">Name:</span> {customerDetails.name}
+                            <span className="font-medium text-gray-700">Name:</span> {product.firstName}
                         </p>
                         <p>
-                            <span className="font-medium text-gray-700">Email:</span> {customerDetails.email}
+                            <span className="font-medium text-gray-700">Email:</span> {product.email}
                         </p>
                         <p>
-                            <span className="font-medium text-gray-700">Phone:</span> {customerDetails.phone}
+                            <span className="font-medium text-gray-700">Phone:</span> {product.phone}
                         </p>
                         <p>
-                            <span className="font-medium text-gray-700">Address:</span> {customerDetails.address}
+                            <span className="font-medium text-gray-700">Address:</span> {product.address1}
                         </p>
                     </div>
+                    ))}
                 </div>
 
                 {/* Product Details Section */}
                 <div className="mb-8">
                     <h2 className="text-xl font-semibold text-gray-800 mb-4">Order Summary</h2>
                     <div className="space-y-4">
-                        {products.map((product) => (
+                        {cartData.map((product) => (
                             <div
                                 key={product.slug}
                                 className="flex items-center justify-between border-b pb-4"
