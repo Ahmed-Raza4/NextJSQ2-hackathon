@@ -1,16 +1,25 @@
-'use client'
+"use client"
 import Image from "next/image"
 import Link from "next/link";
-import { signIn } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 
 const Sign_In = () => {
-    const handleSignIn = async () => {
-        await signIn('github')
+    const handleSignIn = async (e: any) => {
+        e.preventDefault();
+        await signIn('github', { callbackUrl: '/' });
     }
-    
+    const { data: session } = useSession(); // ✅ Get user session
+
+
     return (
         <>
+            {session ? (<div>
+                <p>Welcome, {session.user?.name}</p>
+                <img src={session.user?.image ?? ""} alt="User Avatar" width={50} height={50} />
+                <button onClick={() => signOut()}>Sign Out</button>
+            </div>
+            ) : (
             <div className='h-screen  grid place-content-center  overflow-hidden  '>
                 <div className=' w-[380px] h-[489] font-[Helvetica] '>
 
@@ -77,6 +86,7 @@ const Sign_In = () => {
 
 
             </div>
+            )}
         </>
     )
 }
