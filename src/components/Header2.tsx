@@ -6,23 +6,27 @@ import Frame from "../../public/header/logo.png"
 import Logo from "../../public/header/nike logo.png"
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [query, setQuery] = useState(" ")
   const router = useRouter();
+  const {data: session} = useSession();
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
   const handleSearch = (e: any) => {
     e.preventDefault();
     if (query.trim()) {
       router.push(`/all-products?search=${encodeURIComponent(query.trim())}`);
     }
     setQuery("");
+    toggleMenu();
   }
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const navLinks = [
     { href: "/all-products", label: "New & Featured" },
@@ -36,7 +40,6 @@ export default function Nav() {
   const topBarLinks = [
     { href: "/contact-us", label: "Find a Store" },
     { href: "/contact-us", label: "Help" },
-    { href: "/sign-up", label: "Join Us" },
     { href: "/sign-in", label: "Sign In" }
   ];
 
@@ -48,15 +51,32 @@ export default function Nav() {
           <Link href="/"><Image src={Frame} alt={''} width={24} height={24} /> </Link>
         </div>
         <div className="hidden md:flex gap-4">
-          {topBarLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
+          <a
+              href={"/contact-us"}
               className="hover:text-gray-800"
             >
-              {link.label}
+              Find a Store
             </a>
-          ))}
+            <a
+              href={"/contact-us"}
+              className="hover:text-gray-800"
+            >
+              Help
+            </a>
+            {session ? ( 
+              <div>
+                <Link href={"/profile"}>
+                <Image src={ session.user?.image ?? ' ' }  alt=' user name ' width={24}  height={24} className='rounded-full'/>
+                </Link>
+              </div>
+             ) : (
+            <a
+              href={"/sign-in"}
+              className="hover:text-gray-800"
+            >
+              Sign In
+            </a>
+          )}
         </div>
       </div>
 

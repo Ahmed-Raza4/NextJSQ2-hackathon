@@ -150,7 +150,7 @@ export default function Sign_up() {
           {/* Already Signed-In Link */}
           <div className="text-center mt-4">
             <span className="text-sm text-gray-600">Already have an account? </span>
-            <a href="#" className="text-blue-500 font-medium">Sign-In</a>
+            <a href="/sign-in" className="text-blue-500 font-medium">Sign-In</a>
           </div>
         </div>
       </div>

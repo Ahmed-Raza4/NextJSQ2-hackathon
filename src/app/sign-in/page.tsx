@@ -1,97 +1,93 @@
-"use client"
-import Image from "next/image"
+"use client";
+import Image from "next/image";
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 
-const Sign_In = () => {
-    const handleSignIn = async (e: any) => {
-        e.preventDefault();
-        await signIn('github', { callbackUrl: '/' });
-    }
-    const { data: session } = useSession(); // ✅ Get user session
-
-
-    return (
-        <>
-            {session ? (<div>
-                <p>Welcome, {session.user?.name}</p>
-                <Image src={session.user?.image ?? ""} alt="User Avatar" width={50} height={50} />
-                <button onClick={() => signOut()}>Sign Out</button>
+const Login = () => {
+  const handleSignIn = async (e: any) => {
+    e.preventDefault();
+    await signIn("github", { callbackUrl: "/" });
+  };
+  const handleSignInGoogle = async (e: any) => {
+    e.preventDefault();
+    await signIn("google", { callbackUrl: "/" });
+  };
+ 
+  return (
+    <>
+        <div className="flex items-center justify-center min-h-screen px-4">
+          <div className="w-full max-w-md bg-white p-6 shadow-lg rounded-lg">
+            <div className="flex justify-center mb-6">
+              <Image src="/logo.png" alt="logo" width={60} height={60} />
             </div>
-            ) : (
-            <div className='h-screen  grid place-content-center  overflow-hidden  '>
-                <div className=' w-[380px] h-[489] font-[Helvetica] '>
 
-                    <div className="flex justify-center  ">
-                        <Image
-                            src="/logo.png"
-                            alt="logo"
-                            width={60}
-                            height={60}
-                            className="pb-4 mt-5 ml-2"
-                        />
-                    </div>
+            <h1 className="text-center text-2xl font-bold mb-4">
+              Your Account
+              <br />
+              For Everything
+              <br />
+              Nike
+            </h1>
 
-                    <div className="flex justify-center text-center text-2xl font-[Helvetica] font-[700] leading-8  ">
-                        <h1>Your Account <br /> For Everything <br />Nike </h1>
-                    </div>
+            <input
+              type="email"
+              placeholder="Email address"
+              className="w-full px-4 py-3 border rounded-md mb-3 outline-none focus:ring-2 focus:ring-gray-300"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 border rounded-md mb-3 outline-none focus:ring-2 focus:ring-gray-300"
+            />
 
-
-                    <div className="mt-11 border border-gray-300/60   px-4 py-2 rounded-sm outline-none ">
-                        <input type="email" name="email" id="1" placeholder="Email address " />
-                    </div>
-
-                    <div className="mt-5 border px-4 py-2 rounded-sm outline-none ">
-                        <input type="password" name="passowrd" id="1" placeholder="Password " />
-                    </div>
-                    <div className="flex ">
-                        <input
-                            type="checkbox"
-                            name="checkbox"
-                            id="checkbox"
-                            aria-label="Keep me signed in"
-                            className="w-6 h-6 mt-5 appearance-none bg-white border border-gray-300/60 rounded checked:bg-black checked:focus:ring-2 checked:focus:ring-white checked:after:content-['✔'] checked:after:text-white checked:after:block checked:after:text-center"
-                        />
-
-                        <p className="mt-5 ml-3  text-sm text-zinc-500/70">Keep me signed in</p>
-                        <p className="mt-5 ml-16 text-sm text-zinc-300">Forgotten your password?</p>
-                    </div>
-
-
-                    <div className="flex justify-center mt-9 text-center text-zinc-500/70">
-                        <p>
-                            By Logging in, you agree to {'Nike\u0027s'} <span className="underline underline-offset-2">Privacy Policy</span> and <span className="underline underline-offset-2">Terms of Use</span>
-                        </p>
-                    </div>
-                    <div className="bg-zinc-800 text-center  mt-6">
-                        <button className=" text-white/90 py-3 rounded-lg font-extralight text-sm">SIGN IN</button>
-                    </div>
-
-                    {/* Add AUthantication with Github */}
-                    <div className="bg-zinc-800 text-center  mt-6">
-                        <button className=" text-white/90 py-3 rounded-lg font-extralight text-sm" onClick={handleSignIn}>SIGN IN WITH GITHUB</button>
-                    </div>
-
-
-                    <div className="pb-11 flex justify-center p-4 text-zinc-500/70">
-
-                        <p className="">
-                            Not a Member? <span className="text-zinc-900 underline underline-offset-2"> <Link href="/sign-up"> Join Us. </Link></span>
-                        </p>
-                    </div>
-
-
-                </div>
-
-
+            <div className="flex items-center justify-between text-sm mb-4">
+              <label className="flex items-center">
+                <input type="checkbox" className="w-4 h-4 mr-2" /> Keep me
+                signed in
+              </label>
+              <a href="#" className="text-gray-500 hover:underline">
+                Forgotten your password?
+              </a>
             </div>
-            )}
-        </>
-    )
-}
 
-export default Sign_In;
+            <p className="text-center text-sm text-gray-600 mb-4">
+              By Logging in, you agree to {"'Nike's"}{" "}
+              <Link href="#" className="underline">
+                Privacy Policy
+              </Link>{" "}
+              and{" "}
+              <Link href="#" className="underline">
+                Terms of Use
+              </Link>
+            </p>
 
+            <button className="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800">
+              SIGN IN
+            </button>
+            <button
+              onClick={handleSignInGoogle}
+              className="w-full bg-black text-white py-3 rounded-md mt-3 hover:bg-gray-800"
+            >
+              SIGN IN WITH GOOGLE
+            </button>
+            <button
+              onClick={handleSignIn}
+              className="w-full bg-black text-white py-3 rounded-md mt-3 hover:bg-gray-800"
+            >
+              SIGN IN WITH GITHUB
+            </button>
 
+            <p className="text-center text-sm mt-4">
+              Not a Member?{" "}
+              <Link href="/sign-up" className="underline">
+                Join Us.
+              </Link>
+            </p>
+          </div>
+        </div>
+    </>
+  );
+};
 
+export default Login;
