@@ -5,11 +5,21 @@ import { FiPackage } from "react-icons/fi";
 import { nanoid } from "nanoid";
 import sanityClient from "@/sanity/sanity.client";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const Checkout = () => {
   const [items, setItems] = useState<any[]>([]);
   const [cartData, setCartData] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
+
+  const { data: session, status } = useSession();
+  
+      const router = useRouter();
+      useEffect(() => {
+          if (status === "unauthenticated") {
+              router.push("/sign-in"); // Redirect if not logged in
+          }
+      }, [status, router])
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -24,8 +34,6 @@ const Checkout = () => {
     phone: "",
     consent: false,
   });
-
-  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== "undefined") {

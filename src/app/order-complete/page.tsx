@@ -2,12 +2,21 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 
 export default function OrderComplete() {
     const [products, setProducts] = useState<any[]>([]);
     const [total, setTotal] = useState<number>(0);
     const [cartData, setCartData] = useState<any[]>([])
+    
+    const { data: session, status } = useSession();
+    const router = useRouter();
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            router.push("/sign-in"); // Redirect if not logged in
+        }
+    }, [status, router])
 
     useEffect(() => {
         // Fetch cart data
@@ -30,7 +39,6 @@ export default function OrderComplete() {
         }
     }, []);
     
-    const router =   useRouter();
     const handleContinueShopping = () => {
         localStorage.removeItem('cart'); // Clear cart from local storage
         localStorage.removeItem('order'); // Clear order from local storage

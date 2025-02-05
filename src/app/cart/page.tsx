@@ -4,11 +4,23 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 export default function Cart() {
     const [items, setItems] = useState<any[]>([]);
     const [quantities, setQuantities] = useState<{ [key: string]: number }>({});
     const [showPopup, setShowPopup] = useState(false);
+
+    const { data: session, status } = useSession();
+  
+    const router = useRouter();
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            router.push("/sign-in"); // Redirect if not logged in
+        }
+    }, [status, router])
+
 
     const handleQuantityChange = (slug: string, quantity: number) => {
         setQuantities((prev) => ({ ...prev, [slug]: quantity >= 1 ? quantity : 1 }));
