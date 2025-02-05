@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { IoLocationOutline } from 'react-icons/io5'
 
 const Footer = () => {
@@ -44,10 +44,10 @@ const Footer = () => {
   
           {/* Column 4 (Social Media Icons) */}
           <div className="flex justify-start lg:justify-end items-start gap-4">
-            <FaTwitter className="text-lg cursor-pointer hover:text-gray-400" />
-            <FaFacebook className="text-lg cursor-pointer hover:text-gray-400" />
-            <FaYoutube className="text-lg cursor-pointer hover:text-gray-400" />
-            <FaInstagram className="text-lg cursor-pointer hover:text-gray-400" />
+            <Link href={"https://www.linkedin.com/in/irazaahmed/"}><FaLinkedin className="text-lg cursor-pointer hover:text-gray-400" /></Link>
+            <Link href={"https://www.instagram.com/iraza_ahmed/"}><FaInstagram className="text-lg cursor-pointer hover:text-gray-400" /></Link>
+            <Link href={"https://www.facebook.com/irazaahmed/"}><FaFacebook className="text-lg cursor-pointer hover:text-gray-400" /></Link>
+            <Link href={"https://x.com/iraza_ahmed"}><FaTwitter className="text-lg cursor-pointer hover:text-gray-400" /></Link>
           </div>
         </div>
   
@@ -57,7 +57,7 @@ const Footer = () => {
           <div className="flex mb-4 md:mb-0 gap-2">
           <IoLocationOutline  className=''/>
             <p>India</p>
-            <p>© 2023 Nike, Inc. All Rights Reserved</p>
+            <p>© 2025 Nike, Inc. All Rights Reserved</p>
           </div>
   
           {/* Links */}

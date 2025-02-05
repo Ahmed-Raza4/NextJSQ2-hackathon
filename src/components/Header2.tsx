@@ -13,7 +13,7 @@ export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [query, setQuery] = useState(" ")
   const router = useRouter();
-  const {data: session} = useSession();
+  const { data: session } = useSession();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,24 +52,24 @@ export default function Nav() {
         </div>
         <div className="hidden md:flex gap-4">
           <a
-              href={"/contact-us"}
-              className="hover:text-gray-800"
-            >
-              Find a Store
-            </a>
-            <a
-              href={"/contact-us"}
-              className="hover:text-gray-800"
-            >
-              Help
-            </a>
-            {session ? ( 
-              <div>
-                <Link href={"/profile"}>
-                <Image src={ session.user?.image ?? ' ' }  alt=' user name ' width={24}  height={24} className='rounded-full'/>
-                </Link>
-              </div>
-             ) : (
+            href={"/contact-us"}
+            className="hover:text-gray-800"
+          >
+            Find a Store
+          </a>
+          <a
+            href={"/contact-us"}
+            className="hover:text-gray-800"
+          >
+            Help
+          </a>
+          {session ? (
+            <div>
+              <Link href={"/profile"}>
+                <Image src={session.user?.image ?? ' '} alt=' user name ' width={24} height={24} className='rounded-full' />
+              </Link>
+            </div>
+          ) : (
             <a
               href={"/sign-in"}
               className="hover:text-gray-800"
@@ -182,16 +182,30 @@ export default function Nav() {
 
                   {/* Mobile Top Bar Links */}
                   <div className="mt-4 space-y-3">
-                    {topBarLinks.map((link) => (
+                    <a
+                      href={"/contact-us"}
+                      className="hover:text-gray-800"
+                      onClick={toggleMenu}
+                    >
+                      Help
+                    </a>
+                    <br />
+                    <br />
+                    {session ? (
+                      <div>
+                        <Link href={"/profile"} onClick={toggleMenu}>
+                          <Image src={session.user?.image ?? ' '} alt=' user name ' width={24} height={24} className='rounded-full' />
+                        </Link>
+                      </div>
+                    ) : (
                       <a
-                        key={link.href}
-                        href={link.href}
+                        href={"/sign-in"}
+                        className="hover:text-gray-800"
                         onClick={toggleMenu}
-                        className="block text-gray-600 hover:text-black"
                       >
-                        {link.label}
+                        Sign In
                       </a>
-                    ))}
+                    )}
                   </div>
                 </nav>
               </div>
