@@ -42,12 +42,6 @@ const Profile = () => {
                     <p className="text-sm text-gray-700">Membership: <span className="font-medium">Standard User</span></p>
                 </div>
 
-                {/* Activity Details Section */}
-                <div className="bg-gray-50 rounded-lg p-4 mb-6 shadow-sm">
-                    <h3 className="text-lg font-semibold text-gray-600 mb-2">Recent Activity</h3>
-                    <p className="text-sm text-gray-700">- Logged in {activity.loginsThisWeek} times this week</p>
-                    <p className="text-sm text-gray-700">- Last update to profile: <span className="font-medium">{activity.lastUpdate}</span></p>
-                </div>
 
                 {/* Support Section */}
                 <div className="bg-gray-50 rounded-lg p-4 mb-6 shadow-sm">

@@ -68,61 +68,6 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Best of Air Max Section */}
-      {/* <section className="bg-white py-12 px-4">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-0">Best of Air Max</h2>
-            <div className="flex items-center space-x-4">
-              <button className="px-4 py-2 font-bold rounded-full">Shop</button>
-              <div className="flex space-x-2">
-                <button className="p-2 bg-gray-100 rounded-full">←</button>
-                <button className="p-2 bg-gray-300 rounded-full">→</button>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                img: "/HeroSection/image1.png",
-                title: "Nike Air Max Pulse",
-                desc: "Women's Shoes",
-                price: "₹ 13,995",
-              },
-              {
-                img: "/HeroSection/image2.png",
-                title: "Nike Air Max Pulse",
-                desc: "Men's Shoes",
-                price: "₹ 13,995",
-              },
-              {
-                img: "/HeroSection/image3.png",
-                title: "Nike Air Max 97 SE",
-                desc: "Men's Shoes",
-                price: "₹ 16,995",
-              },
-            ].map((product, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
-                <Image
-                  src={product.img}
-                  alt={product.title}
-                  width={300}
-                  height={300}
-                  className="mx-auto object-contain"
-                />
-                <div className="mt-4 text-center">
-                  <Link href="/product-detail" className="block">
-                    <h3 className="font-medium text-lg hover:text-blue-600">{product.title}</h3>
-                  </Link>
-                  <p className="text-gray-500 text-sm">{product.desc}</p>
-                  <p className="font-bold mt-1">{product.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
 <section className="bg-white py-12 px-4"> 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -160,7 +105,7 @@ export default function Hero() {
         <div className="container mx-auto">
           <div className="relative w-full h-[50vh] md:h-[70vh] mb-8">
             <Image
-              src="/HeroSection/image4.png"
+              src="/HeroSection/Image4.png"
               alt="Running Man"
               fill
               className="object-cover rounded-lg"
@@ -187,22 +132,22 @@ export default function Hero() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               {
-                img: "/HeroSection/image5.png",
+                img: "/HeroSection/Image5.png",
                 title: "Nike Dri-FIT ADV TechKnit Ultra",
                 price: "₹ 3,895",
               },
               {
-                img: "/HeroSection/image6.png",
+                img: "/HeroSection/Image6.png",
                 title: "Nike Dri-FIT Challenger",
                 price: "₹ 2,495",
               },
               {
-                img: "/HeroSection/image7.png",
+                img: "/HeroSection/Image7.png",
                 title: "Nike Dri-FIT ADV Run Division",
                 price: "₹ 5,295",
               },
               {
-                img: "/HeroSection/image8.png",
+                img: "/HeroSection/Image8.png",
                 title: "Nike Fast",
                 price: "₹ 3,795",
               },
@@ -229,7 +174,7 @@ export default function Hero() {
           <h1 className="font-semibold text-xl mb-4 text-center md:text-left">Don&apos;t Miss</h1>
           <div className="relative w-full h-[50vh] md:h-[70vh] lg:h-[90vh] md:mb-8">
             <Image
-              src="/HeroSection/image9.png"
+              src="/HeroSection/Image9.png"
               alt="flight"
               width={1344}
               height={700}
@@ -259,21 +204,21 @@ export default function Hero() {
             width={300}
             height={300}
             alt="Essential 1"
-            src="/HeroSection/image10.png"
+            src="/HeroSection/Image10.png"
             className="object-contain"
           />
           <Image
             width={300}
             height={300}
             alt="Essential 2"
-            src="/HeroSection/image11.png"
+            src="/HeroSection/Image11.png"
             className="object-contain"
           />
           <Image
             width={300}
             height={300}
             alt="Essential 3"
-            src="/HeroSection/image12.png"
+            src="/HeroSection/Image12.png"
             className="object-contain"
           />
         </div>
