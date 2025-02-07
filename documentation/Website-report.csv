@@ -1,27 +1,6 @@
-View,Metric,Value
-Mobile,Performance,84
-Mobile,Accessibility,82
-Mobile,Best Practices,100
-Mobile,SEO,82
-Mobile,First Contentful Paint,1.7 s
-Mobile,Largest Contentful Paint,4.1 s
-Mobile,Total Blocking Time,0 ms
-Mobile,Cumulative Layout Shift,0.012
-Mobile,Speed Index,4.2 s
-Mobile,Accessibility Issues,"Some image elements are missing alt attributes. Some links do not have a discernible name. Contrast issues between background and foreground colors. Some links rely on color alone to be distinguishable."
-Mobile,Best Practices Details,"Avoids enormous network payloads (total size was 492 KiB). Avoids an excessive DOM size (255 elements). Avoids chaining critical requests (1 chain found). JavaScript execution time is 0.2 s. Main-thread work is minimized to 0.4 s. Third-party code blocked the main thread for 0 ms."
-Mobile,SEO Issues,"Links do not have descriptive text. Image elements do not have alt attributes."
-Desktop,Performance,100
-Desktop,Accessibility,78
-Desktop,Best Practices,100
-Desktop,SEO,82
-Desktop,First Contentful Paint,0.5 s
-Desktop,Largest Contentful Paint,0.6 s
-Desktop,Total Blocking Time,0 ms
-Desktop,Cumulative Layout Shift,0
-Desktop,Speed Index,0.9 s
-Desktop,Accessibility Issues,"Buttons do not have an accessible name. Image elements do not have alt attributes. Links do not have a discernible name. Background and foreground colors do not have sufficient contrast. Links rely on color to be distinguishable."
-Desktop,Best Practices Details,"Avoids an excessive DOM size (250 elements). Avoids chaining critical requests (1 chain found). JavaScript execution time: 0.1 s. Main-thread work: 0.3 s. Third-party code blocked the main thread for 0 ms. Largest Contentful Paint element: 540 ms."
-Desktop,SEO Issues,"Links do not have descriptive text. Image elements do not have alt attributes."
-Desktop,Diagnostics - Opportunities,"Eliminate render-blocking resources (Potential savings: 230 ms); Properly size images (Potential savings: 40 KiB); Reduce unused JavaScript (Potential savings: 21 KiB)"
-Desktop,Diagnostics - Passed,"Initial server response time was short (Root document took 510 ms); Avoid large layout shifts (1 layout shift found); Avoid enormous network payloads (Total size was 619 KiB)"
+Test Case ID,Test Case Title,Description,Preconditions,Test Steps,Expected Result,Actual Result,Status,Security Level,Remarks
+TC-001,Search Bar Functionality,"Validate that the search bar filters products accurately by name, description, or tags.","Application is running, user logged in.",1. Open the Nike homepage. 2. Enter a valid product name in the search bar. 3. Verify that relevant products appear.,Products matching the search query are displayed correctly.,Pass,Resolved,Medium,-
+TC-002,Filter Component,Ensure filters apply correctly based on user-selected  price.,Application is running.,1. Go to the category page. 2. Select a category and apply a price filter. 3. Verify that only relevant products appear.,Products are filtered correctly based on the selected criteria.,Pass,Resolved,Medium,-
+TC-003,Pangination Component,Ensure Pagination Component apply correctly based on the products.,Application is running.,1. Go to the shop page. 2. scroll down to the page. 3. change the page to see more products.,Products are filtered correctly based on the selected criteria.,Pass,Resolved,Medium,
+TC-004,Checkout Validation,Verify the checkout process prompts the user to fill in the required details before placing an order.,Cart contains items.,1. Add products to the cart. 2. Navigate to the checkout page. 3. Try to place an order without filling in all details. 4. Verify that an error message appears.,User is prompted to fill out the required form before proceeding.,Pass,Resolved,High,-
+TC-005,Dynamic Routing,Test that clicking on a product redirects to its respective detail page with correct data.,Product listing page is accessible.,1. Open the product listing page. 2. Click on a product. 3. Verify that the correct product detail page is displayed.,Dynamic product page loads correctly with product details.,Pass,Resolved,High,-
